@@ -1,0 +1,35 @@
+{
+  "name": "prematch",
+  "version": "1.0.0",
+  "description": "Erc 前端开发团队研发的一款轻量级状态管理工具",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zuzucheFE/Prematch.git"
+  },
+  "keywords": [
+    "rematch",
+    "redux",
+    "react-redux"
+  ],
+  "author": "ERC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zuzucheFE/Prematch/issues"
+  },
+  "homepage": "https://github.com/zuzucheFE/Prematch#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0"
+  },
+  "dependencies": {
+    "react": "^16.10.2"
+  }
+}

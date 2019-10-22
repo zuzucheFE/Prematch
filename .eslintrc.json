@@ -1,0 +1,44 @@
+{
+    "parser": "babel-eslint",
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": "airbnb",
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "indent": ["error", 4],
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4],
+        "react/jsx-filename-extension": "off",
+        "react/prop-types": "off",
+        "no-param-reassign": "warn",
+        "no-return-assign": "off",
+        "react/jsx-one-expression-per-line": "off",
+        "comma-dangle": "off",
+        "no-plusplus": "off",
+        "global-require": "off",
+        "react/no-did-update-set-state": "warn",
+        "func-names": "off",
+        "react/no-array-index-key": "warn",
+        "arrow-parens": "off",
+        "import/no-named-as-default-member": "off",
+        "no-await-in-loop": "off",
+        "react/jsx-curly-newline": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react/destructuring-assignment": "off"
+    }
+}
