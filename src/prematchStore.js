@@ -1,5 +1,5 @@
 // 状态管理方案一，不引入rematch而使用rematch
-import React from 'react';
+// import React from 'react';
 import { shallowEqual, objGet } from './util';
 
 /**
@@ -142,80 +142,80 @@ export function connect(mapStateToProps) {
     }
 
     return function wrapWithConnect(WrappedComponent) {
-        class Connect extends React.Component {
-            constructor(props, context) {
-                super(props, context);
-                this.store = store;
+        // class Connect extends React.Component {
+        //     constructor(props, context) {
+        //         super(props, context);
+        //         this.store = store;
 
-                this.state = {
-                    storeState: computeStateProps(this.store, props)
-                };
-                this.trySubscribe();
-            }
+        //         this.state = {
+        //             storeState: computeStateProps(this.store, props)
+        //         };
+        //         this.trySubscribe();
+        //     }
 
-            shouldComponentUpdate(nextProps, nextState) {
-                const stateChanged = nextState.storeState !== this.state.storeState;
-                const propsChanged = !shallowEqual(nextProps, this.props);
+        //     shouldComponentUpdate(nextProps, nextState) {
+        //         const stateChanged = nextState.storeState !== this.state.storeState;
+        //         const propsChanged = !shallowEqual(nextProps, this.props);
 
-                return propsChanged || stateChanged;
-            }
+        //         return propsChanged || stateChanged;
+        //     }
 
-            componentWillUnmount() {
-                this.tryUnsubscribe();
-            }
+        //     componentWillUnmount() {
+        //         this.tryUnsubscribe();
+        //     }
 
-            getWrappedInstance() {
-                return this.wrappedInstance;
-            }
+        //     getWrappedInstance() {
+        //         return this.wrappedInstance;
+        //     }
 
-            setWrappedInstance = d => this.wrappedInstance = d
+        //     setWrappedInstance = d => this.wrappedInstance = d
 
-            handleChange = () => {
-                if (!this.isSubscribed()) return;
-                this.updateStateProps();
-            }
+        //     handleChange = () => {
+        //         if (!this.isSubscribed()) return;
+        //         this.updateStateProps();
+        //     }
 
-            isSubscribed() {
-                return typeof this.unsubscribe === 'function';
-            }
+        //     isSubscribed() {
+        //         return typeof this.unsubscribe === 'function';
+        //     }
 
-            trySubscribe() {
-                if (shouldSubscribe && !this.unsubscribe) {
-                    this.unsubscribe = this.store.subscribe(this.handleChange);
-                    this.handleChange();
-                }
-            }
+        //     trySubscribe() {
+        //         if (shouldSubscribe && !this.unsubscribe) {
+        //             this.unsubscribe = this.store.subscribe(this.handleChange);
+        //             this.handleChange();
+        //         }
+        //     }
 
-            tryUnsubscribe() {
-                if (this.unsubscribe) {
-                    this.unsubscribe();
-                    this.unsubscribe = null;
-                }
-            }
+        //     tryUnsubscribe() {
+        //         if (this.unsubscribe) {
+        //             this.unsubscribe();
+        //             this.unsubscribe = null;
+        //         }
+        //     }
 
-            updateStateProps(props = this.props) {
-                const nextStateProps = computeStateProps(this.store, props);
-                if (shallowEqual(nextStateProps, this.state.storeState)) return;
-                this.setState({
-                    storeState: nextStateProps
-                });
-            }
+        //     updateStateProps(props = this.props) {
+        //         const nextStateProps = computeStateProps(this.store, props);
+        //         if (shallowEqual(nextStateProps, this.state.storeState)) return;
+        //         this.setState({
+        //             storeState: nextStateProps
+        //         });
+        //     }
 
-            render() {
-                return (
-                    <WrappedComponent
-                        ref={this.setWrappedInstance}
-                        {...this.props}
-                        {...this.state.storeState}
-                        dispatch={dispatch}
-                    />
-                );
-            }
-        }
-        Connect.displayName = `Connect(${getDisplayName(WrappedComponent)})`;
-        Connect.WrappedComponent = WrappedComponent;
+        //     render() {
+        //         return (
+        //             <WrappedComponent
+        //                 ref={this.setWrappedInstance}
+        //                 {...this.props}
+        //                 {...this.state.storeState}
+        //                 dispatch={dispatch}
+        //             />
+        //         );
+        //     }
+        // }
+        // Connect.displayName = `Connect(${getDisplayName(WrappedComponent)})`;
+        // Connect.WrappedComponent = WrappedComponent;
 
-        return Connect;
+        // return Connect;
     };
 }
 

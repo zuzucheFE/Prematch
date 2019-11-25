@@ -1,5 +1,5 @@
 // 提供rematch plugin支持
-import store from './rematchStore';
+import store from './prematchStore';
 
 const all = {
     plugins: []

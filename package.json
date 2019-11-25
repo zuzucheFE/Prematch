@@ -2,9 +2,10 @@
   "name": "prematch",
   "version": "1.0.0",
   "description": "Erc 前端开发团队研发的一款轻量级状态管理工具",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rm -rf dist",
+    "build": "NODE_ENV=production && npm run clean && ./node_modules/.bin/webpack -p"
   },
   "repository": {
     "type": "git",
@@ -22,12 +23,17 @@
   },
   "homepage": "https://github.com/zuzucheFE/Prematch#readme",
   "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
     "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
     "eslint": "^6.5.1",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.16.0"
+    "eslint-plugin-react": "^7.16.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
   },
   "dependencies": {
     "react": "^16.10.2"
