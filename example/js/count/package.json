@@ -9,7 +9,7 @@
     "build": "webpack"
   },
   "dependencies": {
-    "@rematch/core": "file:../../.."
+    "@prematch/core": "file:../../.."
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",

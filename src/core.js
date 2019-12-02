@@ -7,7 +7,7 @@ const all = {
 
 const merge = (original = {}, next = {}) => ({ ...next, ...original });
 
-const mergeConfig = (initConfig) => {
+const mergeConfig = initConfig => {
     const config = {
         name: initConfig.name,
         models: {},
@@ -34,19 +34,27 @@ const forEachPlugin = (method, fn) => {
     });
 };
 
-const addModel = (model) => {
+const addModel = model => {
     store.model(model);
     forEachPlugin('onModel', (onModel) => onModel.call(store, model));
 };
 
+const getModels = models => {
+    return Object.keys(models).map(name => ({
+        name,
+        ...models[name],
+        reducers: models[name].reducers || {},
+    }))
+}
+
 export default function init(initConfig = {}) {
     const config = mergeConfig({ ...initConfig });
-    const { plugins = [], models } = config;
+    const { plugins = [] } = config;
+    const models = getModels(config.models);
     all.plugins = plugins;
-    Object.keys(models).forEach(name => {
-        const model = models[name];
-        addModel(model);
-    });
+    for (const model of models) {
+        addModel(model)
+    }
 
     const rematchStore = { ...store, model: addModel };
 

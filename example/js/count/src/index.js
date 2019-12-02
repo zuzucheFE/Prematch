@@ -1,4 +1,4 @@
-import { init } from '@rematch/core'
+import { init } from '@prematch/core'
 import createView from './View'
 
 const count = {

@@ -1,6 +1,6 @@
 ## Prematch
 
-Prematch 是 ERC 前端开发团队研发的一款轻量级状态管理工具，使用和 [Rematch](https://github.com/rematch/rematch) 一样的API。Gzip 后大小不到1kB，与市面的状态管理工具相比，更低碳更适合移动端使用。
+Prematch 是 ERC 前端开发团队研发的一款轻量级状态管理工具，使用和 [Rematch](https://github.com/rematch/rematch) 一样的API。Gzip 后大小近2KB，与市面的状态管理工具相比，更低碳更适合移动端使用。
 
 ### 特性
 
