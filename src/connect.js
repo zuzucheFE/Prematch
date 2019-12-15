@@ -1,5 +1,9 @@
 import React from 'react'
 
+function getDisplayName(Component) {
+    return Component.displayName || Component.name || 'Component';
+}
+
 /**
  * 连接组件与store
  * @param {(state,props)=>props} mapStateToProps

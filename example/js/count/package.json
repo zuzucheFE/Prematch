@@ -1,21 +1,19 @@
 {
-  "name": "rematch-vanilla-js-count-example",
-  "version": "1.0.0",
-  "license": "MIT",
-  "main": "src/index.js",
-  "scripts": {
-    "clean": "rm package-lock.json && rm -rf node_modules && npm i",
-    "start": "npm run build && open public/index.html",
-    "build": "webpack"
-  },
-  "dependencies": {
-    "@prematch/core": "file:../../.."
-  },
-  "devDependencies": {
-    "@babel/core": "^7.7.4",
-    "@babel/preset-env": "^7.7.4",
-    "babel-loader": "^7.1.5",
-    "webpack": "^3.8.1"
-  },
-  "private": true
+	"name": "prematch-vanilla-js-count-example",
+	"version": "1.0.0",
+	"license": "MIT",
+	"main": "src/index.js",
+	"scripts": {
+		"clean": "rm package-lock.json && rm -rf node_modules && npm i",
+		"start": "npm run build && open public/index.html",
+		"build": "webpack"
+	},
+	"dependencies": {
+		"@prematch/core": "file:../../.."
+	},
+	"devDependencies": {
+		"babel-loader": "^7.1.2",
+		"webpack": "^3.8.1"
+	},
+	"private": true
 }

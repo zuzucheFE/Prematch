@@ -12,6 +12,7 @@
     "url": "git+https://github.com/zuzucheFE/Prematch.git"
   },
   "keywords": [
+    "prematch",
     "rematch",
     "redux",
     "react-redux"
@@ -24,7 +25,9 @@
   "homepage": "https://github.com/zuzucheFE/Prematch#readme",
   "devDependencies": {
     "@babel/core": "^7.7.4",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "eslint": "^6.5.1",
@@ -35,7 +38,5 @@
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
   },
-  "dependencies": {
-    "react": "^16.10.2"
-  }
+  "dependencies": {}
 }
