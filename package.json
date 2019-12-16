@@ -1,6 +1,6 @@
 {
   "name": "prematch",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Erc 前端开发团队研发的一款轻量级状态管理工具",
   "main": "dist/index.js",
   "scripts": {
