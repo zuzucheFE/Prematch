@@ -1,2 +1,8 @@
 # directories
 src
+example
+webpack.config.js
+README.md
+.vscode
+.gitignore
+.idea
