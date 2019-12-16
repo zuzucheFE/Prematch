@@ -89,7 +89,9 @@ function createCaller({ name, reducers, effects }) {
  */
 function model({ ...mod }) {
     const { name, state, effects } = mod;
-    all.state = { ...all.state, [name]: { ...state } };
+    // 判断 state 是否对象类型
+    const modelState = typeof state === 'object' ? { ...state } : state;
+    all.state = { ...all.state, [name]: modelState };
     if (typeof effects === 'function') mod.effects = effects(dispatch);
     all.models[name] = mod;
     dispatch[name] = createCaller(mod);
@@ -131,14 +133,21 @@ export function subscribeData(path, callback) {
  * 连接组件与store
  * @param {(state,props)=>props} mapStateToProps
  */
-export function connect(mapStateToProps) {
+export function connect(mapStateToProps, mapDispatchToProps) {
     const shouldSubscribe = Boolean(mapStateToProps);
     const finalMapStateToProps = mapStateToProps;
+    const finalMapDispatchToProps = mapDispatchToProps;
 
     function computeStateProps(thisStore, props) {
         const state = thisStore.getState();
         const stateProps = finalMapStateToProps ? finalMapStateToProps(state, props) : {};
         return stateProps;
+    }
+
+    function computeDispatchProps(thisStore, props) {
+        const dispatch = thisStore.dispatch;
+        const dispatchProps = finalMapDispatchToProps ? finalMapDispatchToProps(dispatch, props) : {};
+        return dispatchProps;
     }
 
     return function wrapWithConnect(WrappedComponent) {
@@ -148,7 +157,8 @@ export function connect(mapStateToProps) {
                 this.store = store;
 
                 this.state = {
-                    storeState: computeStateProps(this.store, props)
+                    storeState: computeStateProps(this.store, props),
+                    storeDispatch: computeDispatchProps(this.store, props)
                 };
                 this.trySubscribe();
             }
@@ -207,6 +217,7 @@ export function connect(mapStateToProps) {
                         ref={this.setWrappedInstance}
                         {...this.props}
                         {...this.state.storeState}
+                        {...this.state.storeDispatch}
                         dispatch={dispatch}
                     />
                 );
