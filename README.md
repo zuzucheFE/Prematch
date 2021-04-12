@@ -127,3 +127,30 @@ class Index extends Component {
 
 export default Index;
 ```
+
+### Hooks
+提供和react-redux类似的useSelector和useDispatch
+可在Functional Component中通过hooks连接store
+假设已经注册了Step2的model: count
+
+```jsx
+import React from 'react';
+import { useSelector, useDispatch } from 'prematch';
+
+export default () => {
+    const dispatch = useDispatch();
+    // const dispatch = useDispatch(d => d.count)
+    const { num } = useSelector(s => s.count);
+    // const { num } = useSelector('count', 'num');
+    
+    return (
+        <div>
+            num: {num}
+            <button onClick={() => dispatch.count.incrementAsync(5)}>
+                click to add
+            </button>
+        </div>
+    )
+}
+
+```
